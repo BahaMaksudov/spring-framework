@@ -17,7 +17,12 @@ public class CydeoApp {
         String str = container.getBean(String.class);
         System.out.println(str);
 
+        ContractingMentor cm = container.getBean(ContractingMentor.class);
+        cm.createAccount();
 
+
+        Double dn = container.getBean(Double.class);
+        System.out.println(dn);
 
     }
 }

@@ -15,4 +15,9 @@ public class ConfigApp {
     PartTimeMentor partTimeMentor(){
         return new PartTimeMentor();
     }
+
+    @Bean
+    ContractingMentor contractingMentor () {
+        return new ContractingMentor();
+    }
 }

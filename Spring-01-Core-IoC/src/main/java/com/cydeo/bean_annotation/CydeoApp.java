@@ -11,8 +11,13 @@ public class CydeoApp {
         FullTimeMentor ft = container.getBean(FullTimeMentor.class);
         ft.createAccount();
 
-        PartTimeMentor pt = container.getBean(PartTimeMentor.class);
+        //handling multiple beans having same method - adding @Bean(name = "p1")
+        PartTimeMentor pt = container.getBean("p2",PartTimeMentor.class);
         pt.createAccount();
+
+        //handling multiple beans having same method - @Primary
+        PartTimeMentor pt1 = container.getBean(PartTimeMentor.class);
+        pt1.createAccount();
 
         String str = container.getBean(String.class);
         System.out.println(str);

@@ -2,6 +2,7 @@ package com.cydeo.bean_annotation;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class ConfigApp {
@@ -11,8 +12,19 @@ public class ConfigApp {
         return new FullTimeMentor();
     }
 
-    @Bean
+    @Bean(name = "p2")
     PartTimeMentor partTimeMentor(){
+        return new PartTimeMentor();
+    }
+
+    @Bean(name="p1")
+    PartTimeMentor partTimeMentor1(){
+        return new PartTimeMentor();
+    }
+
+    @Bean
+    @Primary
+    PartTimeMentor partTimeMentor2(){
         return new PartTimeMentor();
     }
 

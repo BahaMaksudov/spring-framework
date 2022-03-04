@@ -10,12 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/mentor")
-public class MentorController {
+@RequestMapping("/another")
+public class AnotherController {
 
-    // @RequestMapping("mentor/list") - this is not a good approach, since you have to change it in every method in this class
-
-    @RequestMapping("/list")     //  localhost:8080/mentor/list
+    @RequestMapping("/list")    //  localhost:8080/another/list
     public String showTable (Model model) {
 
         List<Mentor> mentorList = new ArrayList<>();
@@ -26,7 +24,6 @@ public class MentorController {
         model.addAttribute("mentors",mentorList);
 
         return "mentor/mentor-list";
-
 
     }
 }

@@ -1,5 +1,6 @@
 package com.cydeo.controller;
 
+import com.cydeo.bootstrap.DataGenerator;
 import com.cydeo.enums.Gender;
 import com.cydeo.model.Mentor;
 import org.springframework.stereotype.Controller;
@@ -18,15 +19,9 @@ public class MentorController {
     @RequestMapping("/list")     //  localhost:8080/mentor/list
     public String showTable (Model model) {
 
-        List<Mentor> mentorList = new ArrayList<>();
-        mentorList.add(new Mentor("Mike", "Smith", 45, Gender.MALE));
-        mentorList.add(new Mentor("Tom", "Hanks", 55, Gender.MALE));
-        mentorList.add(new Mentor("Julia", "Rob", 53, Gender.FEMALE));
-
-        model.addAttribute("mentors",mentorList);
+        model.addAttribute("mentors", DataGenerator.createMentor());
 
         return "mentor/mentor-list";
-
 
     }
 }

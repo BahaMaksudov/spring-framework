@@ -27,4 +27,21 @@ public class ConfigAny {
     Double doubleNumber(){
         return 250.0;
     }
+
+
+    @Bean
+    Car car1() {
+        Car c = new Car();
+        c.setMake("Audi");
+        return c;
+    }
+
+    @Bean(name = "c1")
+//    @Bean
+    @Primary
+    Car car2() {
+        Car c = new Car();
+        c.setMake("Tesla");
+        return c;
+    }
 }

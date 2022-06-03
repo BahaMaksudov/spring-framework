@@ -2,12 +2,15 @@ package com.cydeo.entity;
 
 import com.cydeo.enums.UserRole;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Table(name = "account_details")
 @NoArgsConstructor
 public class Account extends BaseEntity{
@@ -23,9 +26,21 @@ public class Account extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private UserRole role = UserRole.USER; //if you want to assign directly, all roles are user in data.sql
 
-
-
     @OneToOne(mappedBy = "account")
     private User user;
 
+    @Override
+    public String toString() {
+        return "Account{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", country='" + country + '\'' +
+                ", state='" + state + '\'' +
+                ", city='" + city + '\'' +
+                ", age=" + age +
+                ", postalCode='" + postalCode + '\'' +
+                ", role=" + role +
+                ", user=" + user +
+                '}';
+    }
 }
